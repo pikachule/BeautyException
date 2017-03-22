@@ -9,13 +9,15 @@
 namespace Goenitz\BeautyException;
 
 
-class BeautyException
+class BeautyExceptions
 {
-    public static function register()
+    private static $theme;
+    public static function register($theme = 'default')
     {
         $error_reporting = error_reporting();
         set_error_handler([__CLASS__, 'errorHandler'], $error_reporting);
         set_exception_handler([__CLASS__, 'exceptionHandler']);
+        self::$theme = $theme;
     }
 
     public static function errorHandler($errorNo, $errorMsg, $errorFile, $errorLine)
@@ -30,6 +32,20 @@ class BeautyException
 
     public static function render($errorNo, $errorMsg, $errorFile, $errorLine, $trace = [])
     {
-        dump(...func_get_args());
+        require 'themes/' . self::$theme . '.php';
+    }
+
+    private static function getSource($errorFile, $errorLine)
+    {
+        $content = file($errorFile);
+        $min = $errorLine - 8 > 0 ? $errorLine - 8 : 0;
+        $content = array_slice($content, $min, 17);
+        $content = array_map(function($line) use (&$min, $errorLine) {
+            if (++$min == $errorLine) {
+                return '<div class="highlight">' . htmlspecialchars($line) . '</div>';
+            }
+            return htmlspecialchars($line);
+        }, $content);
+        return implode($content);
     }
 }
