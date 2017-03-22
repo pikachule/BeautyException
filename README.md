@@ -14,7 +14,7 @@ Usage
 //error_reporting(E_ALL || ~E_NOTICE);
 require 'vendor/autoload.php';
 
-\Goenitz\BeautyException\BeautyExceptions::register();
+\Goenitz\BeautyExceptions\BeautyExceptions::register();
 ```
 
 Ok, that's it!
