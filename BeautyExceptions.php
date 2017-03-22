@@ -6,7 +6,7 @@
  * Time: 17:35
  */
 
-namespace Goenitz\BeautyException;
+namespace Goenitz\BeautyExceptions;
 
 
 class BeautyExceptions
