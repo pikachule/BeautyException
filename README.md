@@ -22,7 +22,7 @@ Ok, that's it!
 ScreenShot
 -------------
 
-![ScreenShot](https://raw.githubusercontent.com/tianyirenjian/static/master/beauty-exceptions.jpg)
+![ScreenShot](https://raw.githubusercontent.com/tianyirenjian/static/master/beauty-exceptions-v1.2.jpg)
 
 Change Logs
 -------------------
