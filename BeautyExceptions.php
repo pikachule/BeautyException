@@ -25,7 +25,7 @@ class BeautyExceptions
         self::render($errorNo, $errorMsg, $errorFile, $errorLine);
     }
 
-    public static function exceptionHandler(\Exception $e)
+    public static function exceptionHandler($e)
     {
         self::render($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), $e->getTrace());
     }

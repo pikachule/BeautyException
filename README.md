@@ -23,3 +23,10 @@ ScreenShot
 -------------
 
 ![ScreenShot](https://raw.githubusercontent.com/tianyirenjian/static/master/beauty-exceptions.jpg)
+
+Change Logs
+-------------------
+
+#### v1.1.0
+
+- BugFix: method BeautyException::exceptionHandler error.
