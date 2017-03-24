@@ -30,3 +30,7 @@ Change Logs
 #### v1.1.0
 
 - BugFix: method BeautyException::exceptionHandler error.
+
+#### v1.2.0
+
+- Style: change default theme to yii-like.

@@ -22,17 +22,23 @@ class BeautyExceptions
 
     public static function errorHandler($errorNo, $errorMsg, $errorFile, $errorLine)
     {
-        self::render($errorNo, $errorMsg, $errorFile, $errorLine);
+        self::render($errorNo, $errorMsg, $errorFile, $errorLine, 'Error');
     }
 
     public static function exceptionHandler($e)
     {
-        self::render($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), $e->getTrace());
+        if ($e instanceof \Error) {
+            $type = 'Error';
+        } else {
+            $type = get_class($e) == '' ? 'Exception' : get_class($e);
+        }
+        self::render($e->getCode(), $e->getMessage(), $e->getFile(), $e->getLine(), $type, $e->getTrace());
     }
 
-    public static function render($errorNo, $errorMsg, $errorFile, $errorLine, $trace = [])
+    public static function render($errorNo, $errorMsg, $errorFile, $errorLine, $type, $trace = [])
     {
         require 'themes/' . self::$theme . '.php';
+        die;
     }
 
     private static function getSource($errorFile, $errorLine)
