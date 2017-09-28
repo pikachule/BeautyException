@@ -59,6 +59,12 @@ echo self::getSource($errorFile, $errorLine);
                 </pre>
             </div>
         </div>
+        <?php
+        $t = array_shift($trace);
+        if (isset($t['file'])) {
+            array_unshift($trace, $t);
+        }
+        ?>
         <?php foreach ($trace as $file) :?>
             <div class="panel panel-default panel<?php echo $rand?>">
                 <div class="panel-heading"><?php echo $count++; ?>. In <?php echo $file['file'] . ' at line ' . $file['line']?></div>
