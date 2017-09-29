@@ -37,6 +37,10 @@ class BeautyExceptions
 
     public static function render($errorNo, $errorMsg, $errorFile, $errorLine, $type, $trace = [])
     {
+        $trace = array_filter($trace, function ($t) {
+            return isset($t['file']);
+        });
+
         require 'themes/' . self::$theme . '.php';
         die;
     }
