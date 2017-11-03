@@ -37,6 +37,8 @@ class BeautyExceptions
 
     public static function render($errorNo, $errorMsg, $errorFile, $errorLine, $type, $trace = [])
     {
+        ob_get_contents();
+        ob_flush();
         $trace = array_filter($trace, function ($t) {
             return isset($t['file']);
         });
